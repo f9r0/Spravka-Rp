@@ -7,6 +7,8 @@
     <link rel="stylesheet" href="/templates.css">
     <link rel="stylesheet" href="/complaints/complaints.css">
     <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+
+    <script src="/api.js"></script>
 </head>
 <body>
     <div class="hot-bar-container">
@@ -26,19 +28,19 @@
 
     <template id="complaint-template">
         <div class="complaint-container">
-            <h1 style="margin: 0;" class="complaint-name"></h1>
-            <span class="complaint-text"></span>
-            <h4 style="margin-top: 20px;" class="complaint-id"></h4>
+            <h1 style="margin: 0; color: #fdce00;" class="complaint-name">Имя</h1>
+            <span style="font-size: large;" class="complaint-text">Пусто</span>
+
+            <h1 style="margin-top: 20px; color: #fdce00;">Доказательства:</h1>
+            <a class="complaint-proof" target="_blank">Пусто</a>
+
+            <h4 style="margin-top: 20px;" class="complaint-created-at">created_at</h4>
         </div>
     </template>
 
-    <div id="complaintsList"></div>
+    <button class="smooth" onclick="window.location.href = '/make-complaint/make-complaint.html'" style="font-size: larger; margin: 40px;">Написать Жалобу</button>
 
-    <form id="complaintForm">
-        <input type="text" id="nickInput" placeholder="Ник нарушителя" required>
-        <input type="text" id="msgInput" placeholder="Что сделал" required>
-        <button type="submit">Отправить жалобу</button>
-    </form>
+    <div id="complaintList" class="global-container"></div>
 
     <script src="/complaints/complaints.js"></script>
     <script src="/scroll.js" target="_blank"></script>

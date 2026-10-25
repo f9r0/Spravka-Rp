@@ -1,71 +1,39 @@
-const backendUrl = 'https://backend-little-valley-4700.fly.dev';
-
-const complaintForm = document.getElementById('complaintForm');
-const nameInput = document.getElementById('nickInput');
-const textInput = document.getElementById('msgInput');
-
-const complaintList = document.getElementById('complaintsList');
+const complaintContainer = document.getElementById('complaintList');
 const complaintTemplate = document.getElementById('complaint-template');
 
-async function loadCharges() {
+async function getComplaints() {
     try {
-        const responce = await fetch(`${backendUrl}/charges`);
+        const result = await window.getFetch(`${window.API}/api/complaints`);
 
-        if (responce.ok) {
-            const charges = await responce.json();
+        if (result.success) {
+            const complaints = result.complaints;
 
-            complaintList.innerHTML = '';
-
-            if (charges.length > 0) {
-                charges.forEach(charge => {
-                    const clone = complaintTemplate.content.cloneNode(true);
-
-                    const chargeId = charge.id ?? charge.Id;
-
-                    clone.querySelector('.complaint-id').textContent = `ID: ${chargeId}`;
-                    clone.querySelector('.complaint-name').textContent = charge.name;
-                    clone.querySelector('.complaint-text').textContent = charge.text;
-
-                    complaintList.appendChild(clone);
-                });
-            } else {
-                complaintList.innerHTML = '<h3 style="text-align: center; color: #aaa;">Список пуст</h3>';
+            if (complaints <= 0) {
+                complaintContainer.textContent = 'Жалоб нету';
             }
+
+            complaints.forEach(complaint => {
+                const clone = complaintTemplate.content.cloneNode(true);
+
+                clone.querySelector('.complaint-name').textContent = 'Нарушитель: ' + complaint.name;
+                clone.querySelector('.complaint-text').textContent = 'Что сделал: ' + complaint.text;
+
+                const proof = clone.querySelector('.complaint-proof');
+                proof.href = complaint.proof;
+                proof.textContent = complaint.proof;
+
+                const date = new Date(complaint.createdAt).toLocaleDateString("ru-RU");
+
+                clone.querySelector('.complaint-created-at').textContent = 'Когда: ' + date;
+
+                complaintContainer.appendChild(clone);
+            });
         }
+
     } catch(error) {
-        console.error('Не удалось загрузить список:', error);
+        console.error('Network error: ', error);
+        complaintContainer.textContent = 'Не удалось загрузить жалобы';
     }
 }
 
-loadCharges();
-
-complaintForm.addEventListener('submit', async (e) => {
-    e.preventDefault();
-
-    const offenderName = nameInput.value;
-    const textMessage = textInput.value;
-
-    const newChargeData = {
-        name: offenderName,
-        text: textMessage,
-    }
-
-    try {
-        const responce = await fetch(`${backendUrl}/add_charge`, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(newChargeData)
-        });
-
-        if (responce.ok) {
-            complaintForm.reset();
-        }
-
-        loadCharges();
-
-    } catch(error) {
-        console.error('Ошибка сети или бэкенд выключен:', error);
-    }
-});
+getComplaints();
