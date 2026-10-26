@@ -22,10 +22,18 @@ body {
 }
 
 .complaint-container {
-    background-color: rgb(24, 24, 24);
+    background: 
+        repeating-linear-gradient(
+            -45deg,
+            rgba(16, 16, 16, 0.075),
+            rgba(28, 28, 28, 0.2) 15px,
+            rgba(23, 23, 23, 0.103) 15px,
+            rgba(2, 2, 2, 0.068) 30px
+        ),
+        linear-gradient(135deg, #181818 0%, #242829 100%);
+        
     padding: 20px;
-    border: 2px solid #ffffff2b;
-    border-radius: 6px;
+    border: 4px dotted #8b8b8b;
 
     width: 100%;
     max-width: 600px;
