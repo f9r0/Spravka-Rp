@@ -2,6 +2,8 @@ const complaintContainer = document.getElementById('complaintList');
 const complaintTemplate = document.getElementById('complaint-template');
 
 async function getComplaints() {
+    complaintContainer.textContent = 'Загрузка..';
+
     try {
         const result = await window.getFetch(`${window.API}/api/complaints`);
 
@@ -26,6 +28,7 @@ async function getComplaints() {
 
                 clone.querySelector('.complaint-created-at').textContent = 'Когда: ' + date;
 
+                complaintContainer.textContent = '';
                 complaintContainer.appendChild(clone);
             });
         }
