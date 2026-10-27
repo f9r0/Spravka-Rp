@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spravka</title>
+    <link rel="stylesheet" href="/templates.css">
+
+    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+    <script src="/api.js"></script>
+</head>
+<style>
+    h1 {
+        color: #4e4e4e;
+        margin-top: 0;
+    }
+
+    input {
+        background-color: #fff;
+        color: #4e4e4e;
+    }
+
+    body {
+        background: none;
+        background-color: #fff;
+        color: #4e4e4e;
+    }
+
+    button {
+        background-color: #fff;
+        color: #4e4e4e;
+        border-color: #bdbaba;
+    }
+
+    button:hover {
+        border-color: #2f2f2f;
+    }
+
+    .global-container {
+        background-color: #dadada;
+        border: 2px solid #ababab;
+    }
+</style>
+<body>
+    <div class="global-container">
+        <h1 style="text-decoration: underline;">Написать Жалобу</h1>
+        
+        <form id="complaint-form" style="display: flex; flex-direction: column; gap: 20px">
+            <h2>Что он(а) сделал(а)</h2>
+            <textarea id="text" placeholder="Нарушил(а) правила сервера" maxlength="255" required></textarea>
+
+            <h2>Ник нарушителя</h2>
+            <textarea id="name" style="height: 40px;" placeholder="User123" maxlength="30" required></textarea>
+
+            <h2>Доказательства</h2>
+
+            <div class="global-container" style="margin: 0;">
+                <a href="https://postimages.org/" target="_blank" style="color: #2f2f2f; text-decoration: underline;">Сайт где можно сделать ссылку на скрин</a>
+                <a href="https://streamable.com/" target="_blank" style="color: #2f2f2f; text-decoration: underline;">Сайт где можно сделать ссылку на видео</a>
+            </div>
+
+            <textarea id="proof" style="height: 40px;" placeholder="ссылка на скрин или видео, можно сделать на https://postimages.org/ или https://streamable.com/" maxlength="255" required></textarea>
+
+            <button id="submit-btn" type="submit" style="width: 100%;">Отправить</button>
+        </form>
+
+        <button onclick="window.history.back()" style="background-color: transparent;">Вернуться</button>
+    </div>
+
+    <script src="/make-complaint/make-complaint.js"></script>
+</body>
+</html>

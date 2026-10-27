@@ -1,0 +1,54 @@
+.global-container {
+    margin-top: 100px;
+}
+
+body {
+    background: none;
+    background-color: #0f1010;
+}
+
+#complaintForm {
+    display: flex;
+    align-items: center;
+
+    background-color: rgb(42, 42, 42);
+    padding: 10px;
+
+    border: 2px solid #676666;
+
+    position: fixed;
+    bottom: 0;
+    margin-bottom: 20px;
+}
+
+.complaint-container {
+    background: 
+        repeating-linear-gradient(
+            -45deg,
+            rgba(16, 16, 16, 0.075),
+            rgba(28, 28, 28, 0.2) 15px,
+            rgba(23, 23, 23, 0.103) 15px,
+            rgba(2, 2, 2, 0.068) 30px
+        ),
+        linear-gradient(135deg, #181818 0%, #242829 100%);
+        
+    padding: 20px;
+    border: 4px dashed #8b8b8b;
+
+    width: 100%;
+    max-width: 600px;
+    margin: 30px auto;
+    box-sizing: border-box;
+
+    display: flex;
+    flex-direction: column;
+
+    gap: 10px;
+
+    overflow-wrap: break-word;
+    word-break: break-word;
+
+    margin-bottom: 120px;
+
+    animation: fadeIn 0.3s ease-in forwards;
+}
