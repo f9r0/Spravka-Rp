@@ -118,7 +118,7 @@ a:hover {
 
     box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
 
-    transition: all 0.3s ease-in-out;
+    transition: all 0.2s ease;
 
     background: 
         repeating-linear-gradient(
@@ -132,7 +132,6 @@ a:hover {
 }
 .span-container:hover {
     border-color: #467886;
-    transform: translateY(-10px);
 }
 
 .global-container {
@@ -207,8 +206,8 @@ button:active {
 
 button:disabled {
     cursor: not-allowed;
-    background-color: #453b3b;
-    border-color: #040404;
+    background-color: #aea0a0;
+    border-color: #2c2b2b;
 }
 
 button:disabled:active {

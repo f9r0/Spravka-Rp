@@ -5,6 +5,7 @@ const name = document.getElementById('name');
 const proof = document.getElementById('proof');
 
 const submitBtn = document.getElementById('submit-btn');
+const returnBtn = document.getElementById('return-btn');
 
 complaintForm.addEventListener('submit', async (e) => {
     e.preventDefault();

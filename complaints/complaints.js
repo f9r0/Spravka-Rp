@@ -12,10 +12,13 @@ async function getComplaints() {
 
             if (complaints <= 0) {
                 complaintContainer.textContent = 'Жалоб нету';
-            } else {
-                complaintContainer.style.border = 'transparent';
-                complaintContainer.style.boxShadow = 'none';
+                return;
             }
+
+            complaintContainer.style.border = 'transparent';
+            complaintContainer.style.boxShadow = 'none';
+
+            complaintContainer.textContent = '';
 
             complaints.forEach(complaint => {
                 const clone = complaintTemplate.content.cloneNode(true);
@@ -31,8 +34,7 @@ async function getComplaints() {
 
                 clone.querySelector('.complaint-created-at').textContent = 'Когда: ' + date;
 
-                complaintContainer.textContent = '';
-                complaintContainer.appendChild(clone);
+                complaintContainer.append(clone);
             });
         }
 

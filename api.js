@@ -1,8 +1,14 @@
 window.API = 'https://spravka-api.onrender.com';
 
 window.postFetch = async function(route, data, submitBtn) {
+    let buttonText;
+    if (submitBtn) buttonText = submitBtn.textContent;
+
     try {
-        if (submitBtn) submitBtn.disabled = true;
+        if (submitBtn)  {
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Загрузка';
+        }
 
         const response = await fetch(route, {
             method: 'POST',
@@ -24,7 +30,10 @@ window.postFetch = async function(route, data, submitBtn) {
         console.log('Network error: ', error);
         throw error;
     } finally {
-        if (submitBtn) submitBtn.disabled = false;
+        if (submitBtn) {
+            submitBtn.disabled = false;
+            submitBtn.textContent = buttonText;
+        }
     }
 }
 
