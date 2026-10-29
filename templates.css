@@ -214,6 +214,13 @@ button:disabled:active {
     transform: none;
 }
 
+hr {
+    border: none;
+    height: 2px;
+    background-color: #625e5e;
+    margin: 10px 0;
+}
+
 @media (max-width: 768px) {
     input {
         font-size: 8px;

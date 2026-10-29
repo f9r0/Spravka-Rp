@@ -2,7 +2,7 @@ const complaintContainer = document.getElementById('complaintList');
 const complaintTemplate = document.getElementById('complaint-template');
 
 async function getComplaints() {
-    complaintContainer.textContent = 'Загрузка..';
+    complaintContainer.textContent = 'Загрузка';
 
     try {
         const result = await window.getFetch(`${window.API}/api/complaints`);

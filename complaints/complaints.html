@@ -27,24 +27,30 @@
 
             <h4 style="margin-top: 20px;" class="complaint-created-at">created_at</h4>
         </div>
+
+        <hr>
     </template>
 
-    <div class="global-container" style="border-radius: 0; border: 4px dashed #363636; background-color: transparent; box-shadow: 0 0 10px 0 #0101015d;">
-        <div class="complaint-container" style="justify-content: center; align-items: center;">
-            <lottie-player 
-                src="/animations/document.json" 
-                background="transparent" 
-                speed="1" 
-                style="width: 300px; height: 300px; margin-top: 100px;"
-                autoplay
-                class="smooth">
-            </lottie-player>
+    <div class="global-container">
+        <lottie-player 
+            src="/animations/document.json" 
+            background="transparent" 
+            speed="1" 
+            style="width: 300px; height: 300px; margin-top: 100px;"
+            autoplay
+            class="smooth">
+        </lottie-player>
 
-            <a href="/make-complaint/make-complaint.html">Написать жалобу</a>
-        </div>
+        <a href="/make-complaint/make-complaint.html">Написать жалобу</a>
     </div>
 
-    <div id="complaintList" class="global-container" style="border-radius: 0; border: 4px dashed #363636; background-color: transparent; box-shadow: 0 0 10px 0 #0101015d;"></div>
+    <div class="global-container" style="margin: 0; background-color: transparent; gap: 0;">
+        <h1 style="margin: 0; padding: 0;">Жалобы</h1>
+        <hr>
+        <div id="complaintList" class="global-container" style="border-radius: 0; border: none; background-color: transparent; box-shadow: none">
+
+        </div>
+    </div>
 
     <script src="/complaints/complaints.js"></script>
     <script src="/scroll.js" target="_blank"></script>
