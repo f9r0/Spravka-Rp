@@ -15,9 +15,6 @@ async function getComplaints() {
                 return;
             }
 
-            complaintContainer.style.border = 'transparent';
-            complaintContainer.style.boxShadow = 'none';
-
             complaintContainer.textContent = '';
 
             complaints.forEach(complaint => {

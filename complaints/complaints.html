@@ -17,15 +17,6 @@
         <a href="/explanations/explanations.html">Как Играть</a>
     </div>
 
-    <lottie-player 
-        src="/animations/document.json" 
-        background="transparent" 
-        speed="1" 
-        style="width: 300px; height: 300px; margin-top: 100px;"
-        autoplay
-        class="smooth">
-    </lottie-player>
-
     <template id="complaint-template">
         <div class="complaint-container">
             <h1 style="margin: 0; color: #fdce00;" class="complaint-name">Имя</h1>
@@ -38,7 +29,20 @@
         </div>
     </template>
 
-    <a href="/make-complaint/make-complaint.html">Написать жалобу</a>
+    <div class="global-container" style="border-radius: 0; border: 4px dashed #363636; background-color: transparent; box-shadow: 0 0 10px 0 #0101015d;">
+        <div class="complaint-container" style="justify-content: center; align-items: center;">
+            <lottie-player 
+                src="/animations/document.json" 
+                background="transparent" 
+                speed="1" 
+                style="width: 300px; height: 300px; margin-top: 100px;"
+                autoplay
+                class="smooth">
+            </lottie-player>
+
+            <a href="/make-complaint/make-complaint.html">Написать жалобу</a>
+        </div>
+    </div>
 
     <div id="complaintList" class="global-container" style="border-radius: 0; border: 4px dashed #363636; background-color: transparent; box-shadow: 0 0 10px 0 #0101015d;"></div>
 

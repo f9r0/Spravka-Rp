@@ -48,7 +48,5 @@ body {
     overflow-wrap: break-word;
     word-break: break-word;
 
-    margin-bottom: 120px;
-
     animation: fadeIn 0.3s ease-in forwards;
 }
